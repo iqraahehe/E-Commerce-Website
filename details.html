@@ -1,0 +1,586 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Product Details - Brand E-commerce</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body>
+    <div id="filter-overlay" class="nav-overlay"></div>
+
+    <aside class="side-nav-mobile" id="side-nav">
+      <div class="nav-user-header">
+        <button id="close-btn" class="close-btn" aria-label="Close Menu">
+          ✕
+        </button>
+        <div class="avatar-circle">
+          <img src="Assets/avatar=pic1.jpg" alt="User Profile" />
+        </div>
+        <div class="auth-text">Sign in | Register</div>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="index.html"><span class="nav-icon">🏠</span> Home</a>
+        </li>
+        <li>
+          <a href="products.html?category=All category"
+            ><span class="nav-icon">📋</span> Categories</a
+          >
+        </li>
+        <li>
+          <a href="#"><span class="nav-icon">❤️</span> Favorites</a>
+        </li>
+        <li>
+          <a href="#"><span class="nav-icon">📦</span> My orders</a>
+        </li>
+      </ul>
+      <hr class="nav-divider" />
+      <ul class="nav-links">
+        <li>
+          <a href="#"><span class="nav-icon">🌐</span> English | USD</a>
+        </li>
+        <li>
+          <a href="#"><span class="nav-icon">🎧</span> Contact us</a>
+        </li>
+        <li>
+          <a href="#"><span class="nav-icon">🏢</span> About</a>
+        </li>
+      </ul>
+      <hr class="nav-divider" />
+      <ul class="nav-links no-icon">
+        <li><a href="#">User agreement</a></li>
+        <li><a href="#">Partnership</a></li>
+        <li><a href="#">Privacy policy</a></li>
+      </ul>
+    </aside>
+
+    <div class="desktop-only">
+      <header class="page-header container">
+        <div class="header-top-row">
+          <div class="logo-area">
+            <button
+              id="menu-btn"
+              class="menu-btn mobile-only"
+              aria-label="Open Menu"
+              style="
+                background: transparent;
+                border: none;
+                padding: 0;
+                display: flex;
+                color: #1c1c1c;
+                cursor: pointer;
+              ">
+              <i class="ph ph-list" style="font-size: 26px"></i>
+            </button>
+
+            <a href="index.html" class="logo-wrapper">
+              <img
+                src="Assets/Brand/logo-symbol.svg"
+                alt="Brand Logo"
+                class="brand-logo-img" />
+              <div class="logo-text">Brand</div>
+            </a>
+          </div>
+
+          <form
+            class="search-form desktop-only-flex"
+            action="products.html"
+            method="GET">
+            <input
+              type="search"
+              name="search"
+              placeholder="Search"
+              aria-label="Search" />
+            <select class="search-category-dropdown" name="category">
+              <option value="All category">All category</option>
+              <option value="Automobiles">Automobiles</option>
+              <option value="Clothes and wear">Clothes and wear</option>
+              <option value="Home and outdoor">Home and outdoor</option>
+              <option value="Computer and tech">Computer and tech</option>
+              <option value="Tools, equipments">Tools, equipments</option>
+              <option value="Sports and outdoor">Sports and outdoor</option>
+              <option value="Animal and pets">Animal and pets</option>
+              <option value="Machinery tools">Machinery tools</option>
+              <option value="Electronics">Electronics</option>
+              <option value="Smartphones">Smartphones</option>
+              <option value="Mobile accessory">Mobile accessory</option>
+            </select>
+            <button type="submit" class="button-search">Search</button>
+          </form>
+
+          <div class="header-actions desktop-only-flex">
+            <div class="action-item">
+              <span class="icon"
+                ><i class="ph-fill ph-user" style="font-size: 24px"></i></span
+              ><span class="label">Profile</span>
+            </div>
+            <div class="action-item">
+              <span class="icon"
+                ><i
+                  class="ph-fill ph-chat-teardrop-dots"
+                  style="font-size: 24px"></i></span
+              ><span class="label">Message</span>
+            </div>
+            <div class="action-item">
+              <span class="icon"
+                ><i class="ph-fill ph-heart" style="font-size: 24px"></i></span
+              ><span class="label">Orders</span>
+            </div>
+            <a
+              href="cart.html"
+              class="action-item"
+              style="text-decoration: none; color: inherit"
+              ><span class="icon"
+                ><i
+                  class="ph-fill ph-shopping-cart"
+                  style="font-size: 24px"></i></span
+              ><span class="label">My cart</span></a
+            >
+          </div>
+        </div>
+      </header>
+
+      <nav class="category-nav desktop-only-flex">
+        <div class="container nav-container">
+          <ul class="nav-main-links">
+            <li>
+              <a href="products.html?category=All category"
+                ><i class="ph ph-list" style="font-size: 18px"></i> All
+                category</a
+              >
+            </li>
+            <li><a href="#">Hot offers</a></li>
+            <li><a href="#">Gift boxes</a></li>
+            <li><a href="#">Projects</a></li>
+            <li><a href="#">Menu item</a></li>
+            <li><a href="#">Help ▾</a></li>
+          </ul>
+          <div class="nav-utils">
+            <div class="dropdown-wrapper">
+              <span class="language">English, USD ▾</span>
+              <ul class="dropdown-menu">
+                <li><a href="#">English, USD</a></li>
+                <li><a href="#">German, EUR</a></li>
+                <li><a href="#">French, EUR</a></li>
+              </ul>
+            </div>
+            <div class="dropdown-wrapper">
+              <span class="shipping" style="display: flex; align-items: center"
+                >Ship to
+                <img
+                  src="https://flagcdn.com/w20/de.png"
+                  alt="DE"
+                  class="dropdown-flag"
+                  style="margin-left: 6px; margin-right: 2px" />
+                ▾</span
+              >
+              <ul class="dropdown-menu">
+                <li>
+                  <a href="#"
+                    ><img
+                      src="https://flagcdn.com/w20/de.png"
+                      alt="DE"
+                      class="dropdown-flag" />
+                    Germany</a
+                  >
+                </li>
+                <li>
+                  <a href="#"
+                    ><img
+                      src="https://flagcdn.com/w20/us.png"
+                      alt="US"
+                      class="dropdown-flag" />
+                    United States</a
+                  >
+                </li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </nav>
+    </div>
+
+    <div class="mobile-details-top-bar mobile-only-flex">
+      <a href="products.html" class="back-arrow"
+        ><i class="ph ph-arrow-left" style="font-size: 24px"></i
+      ></a>
+      <div class="header-actions mobile-only-flex">
+          <a href="cart.html" class="icon cart" style="color: inherit;">
+            <i class="ph ph-shopping-cart" style="font-size: 24px;"></i>
+          </a>
+          <a href="#" class="icon profile" style="color: inherit;">
+            <i class="ph ph-user" style="font-size: 24px;"></i>
+          </a>
+        </div>
+    </div>
+
+    <main class="container">
+      <div class="breadcrumb desktop-only-flex">
+        <a href="index.html">Home</a> <span class="separator">&gt;</span>
+        <a href="products.html" id="bc-category">Category</a>
+        <span class="separator">&gt;</span>
+        <span class="current" id="bc-title">Product Name</span>
+      </div>
+
+      <div class="product-top-card">
+        <div class="gallery-section">
+          <div class="main-image-box">
+            <img id="pd-main-img" src="" alt="Product Image" />
+            <div class="mobile-gallery-arrows mobile-only-flex">
+              <button>❮</button><button>❯</button>
+            </div>
+          </div>
+          <div class="thumbnail-list desktop-only-flex">
+            <div class="thumb active">
+              <img src="" class="pd-thumb-img" alt="Thumb" />
+            </div>
+            <div class="thumb">
+              <img src="" class="pd-thumb-img" alt="Thumb" />
+            </div>
+            <div class="thumb">
+              <img src="" class="pd-thumb-img" alt="Thumb" />
+            </div>
+            <div class="thumb">
+              <img src="" class="pd-thumb-img" alt="Thumb" />
+            </div>
+            <div class="thumb">
+              <img src="" class="pd-thumb-img" alt="Thumb" />
+            </div>
+          </div>
+        </div>
+
+        <div class="info-section">
+          <div class="stock-status desktop-only">✓ In stock</div>
+
+          <div class="rating-row">
+            <span class="stars" id="pd-stars"></span>
+            <span
+              class="rating-num"
+              id="pd-rating"
+              style="display: none"></span>
+            <span class="dot desktop-only">•</span>
+            <span class="reviews-count" id="pd-reviews"></span>
+            <span class="dot">•</span>
+            <span class="sold-count" id="pd-orders"></span>
+          </div>
+
+          <h1 id="pd-title">Product Title</h1>
+
+          <div class="mobile-price-row mobile-only-flex">
+            <span id="mobile-price-main">$0.00</span>
+            <span class="qty-label">(50-100 pcs)</span>
+          </div>
+
+          <div class="pricing-tiers desktop-only-flex">
+            <div class="tier tier-highlight">
+              <div class="tier-price" id="pd-price-1">$98.00</div>
+              <div class="tier-qty">50-100 pcs</div>
+            </div>
+            <div class="tier">
+              <div class="tier-price" id="pd-price-2">$90.00</div>
+              <div class="tier-qty">100-700 pcs</div>
+            </div>
+            <div class="tier">
+              <div class="tier-price" id="pd-price-3">$78.00</div>
+              <div class="tier-qty">700+ pcs</div>
+            </div>
+          </div>
+
+          <div class="mobile-action-row mobile-only-flex">
+            <button class="button-primary">Send inquiry</button>
+            <button class="fav-btn-mobile">
+              <i class="ph ph-heart" style="font-size: 20px"></i>
+            </button>
+          </div>
+
+          <div class="attributes-grid" id="pd-attributes"></div>
+
+          <div class="mobile-desc mobile-only">
+            <p id="mobile-desc-text"></p>
+            <a href="javascript:void(0)" class="read-more" id="read-more-btn"
+              >Read more</a
+            >
+          </div>
+        </div>
+
+        <div class="supplier-section">
+          <div class="supplier-card">
+            <div class="supplier-header">
+              <div class="supplier-logo">R</div>
+              <div class="supplier-name">
+                <span class="title">Supplier</span><br />
+                Guanjoi Trading LLC
+              </div>
+            </div>
+            <ul class="supplier-details">
+              <li>
+                <img
+                  src="https://flagcdn.com/w20/de.png"
+                  alt="DE"
+                  class="s-icon" />
+                Germany
+              </li>
+              <li><span class="s-icon">✓</span> Verified</li>
+              <li><span class="s-icon">🌐</span> Shipping</li>
+            </ul>
+            <button class="button-primary w-100 mt-15 desktop-only">
+              Send inquiry
+            </button>
+            <button class="button-secondary w-100 mt-10 desktop-only">
+              Seller's profile
+            </button>
+          </div>
+          <div class="save-later desktop-only">
+            <button class="save-btn">
+              <i
+                class="ph ph-heart"
+                style="font-size: 18px; margin-right: 6px"></i>
+              Save for later
+            </button>
+          </div>
+        </div>
+      </div>
+
+      <div class="product-bottom-layout desktop-only">
+        <div class="tabs-container">
+          <div class="tabs-header">
+            <div class="tab active">Description</div>
+            <div class="tab">Reviews</div>
+            <div class="tab">Shipping</div>
+            <div class="tab">About seller</div>
+          </div>
+          <div class="tab-content">
+            <div class="tab-pane" style="display: block">
+              <p id="pd-desc">Lorem ipsum dolor sit amet...</p>
+              <table class="specs-table" id="pd-specs"></table>
+              <ul class="feature-checks" id="pd-features"></ul>
+            </div>
+
+            <div class="tab-pane" style="display: none">
+              <p style="color: #505050; padding: 20px 0">
+                No written reviews yet for this product. Be the first to review!
+              </p>
+            </div>
+
+            <div class="tab-pane" style="display: none">
+              <ul
+                style="
+                  color: #505050;
+                  line-height: 1.8;
+                  list-style-type: disc;
+                  margin-left: 20px;
+                ">
+                <li><strong>Standard Shipping:</strong> 5-7 business days.</li>
+                <li><strong>Express Shipping:</strong> 2-3 business days.</li>
+                <li><strong>International:</strong> 10-15 business days.</li>
+              </ul>
+            </div>
+
+            <div class="tab-pane" style="display: none">
+              <p style="color: #505050">
+                <strong>Guanjoi Trading LLC</strong><br />A verified seller from
+                Germany providing top-quality electronics, home goods, and
+                apparel since 2018.
+              </p>
+            </div>
+          </div>
+        </div>
+
+        <aside class="you-may-like">
+          <h3>You may like</h3>
+          <div class="yml-list" id="yml-container"></div>
+        </aside>
+      </div>
+
+      <section class="related-products-block">
+        <h3
+          class="mobile-only"
+          style="font-size: 18px; margin-bottom: 15px; font-weight: 600">
+          Similar products
+        </h3>
+        <h3 class="desktop-only">Related products</h3>
+
+        <div class="related-grid" id="related-container"></div>
+      </section>
+
+      <section class="super-discount-banner desktop-only-flex">
+        <div class="banner-text">
+          <h2>Super discount on more than 100 USD</h2>
+          <p>Have you ever finally just write dummy info</p>
+        </div>
+        <button class="btn-orange">Shop now</button>
+      </section>
+    </main>
+
+    <div class="newsletter-wrapper">
+      <section class="container newsletter-block">
+        <h3>Subscribe on our newsletter</h3>
+        <p>
+          Get daily news on upcoming offers from many suppliers all over the
+          world
+        </p>
+        <form>
+          <div class="input-with-icon">
+            <i
+              class="ph ph-envelope-simple"
+              style="font-size: 20px; color: #8b96a5"></i>
+            <input
+              type="email"
+              placeholder="Email"
+              aria-label="Email Address" />
+          </div>
+          <button type="submit" class="button-primary">Subscribe</button>
+        </form>
+      </section>
+    </div>
+
+    <footer class="site-footer">
+      <div class="container footer-columns">
+        <div class="col-main logo">
+          <div class="logo-wrapper" style="margin-bottom: 15px">
+            <img
+              src="Assets/Brand/logo-symbol.svg"
+              alt="Brand Logo"
+              class="brand-logo-img" />
+
+            <div class="logo-text">Brand</div>
+          </div>
+
+          <p>
+            Best information about the company<br />goes here but now lorem
+            ipsum is
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-facebook-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-twitter-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-linkedin-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-instagram-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-youtube-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col">
+          <strong>About</strong>
+          <ul>
+            <li>About Us</li>
+            <li>Find store</li>
+            <li>Categories</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>Partnership</strong>
+          <ul>
+            <li>About Us</li>
+            <li>Find store</li>
+            <li>Categories</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>Information</strong>
+          <ul>
+            <li>Help Center</li>
+            <li>Money Refund</li>
+            <li>Shipping</li>
+            <li>Contact us</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>For users</strong>
+          <ul>
+            <li>Login</li>
+            <li>Register</li>
+            <li>Settings</li>
+            <li>My Orders</li>
+          </ul>
+        </div>
+        <div class="col-apps">
+          <strong>Get app</strong>
+          <img
+            src="Assets/playstore.png"
+            alt="Download on the App Store"
+            class="app-badge" />
+          <img
+            src="Assets/googleplay.png"
+            alt="Get it on Google Play"
+            class="app-badge" />
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>© 2026 Ecommerce.</span>
+
+          <div class="dropdown-wrapper footer-dropdown">
+            <span
+              class="language"
+              style="display: flex; align-items: center; color: #1c1c1c">
+              <img
+                src="https://flagcdn.com/w20/us.png"
+                alt="US"
+                class="dropdown-flag"
+                style="margin-right: 6px" />
+              English ⌃
+            </span>
+            <ul class="dropdown-menu dropup-menu">
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/us.png"
+                    alt="US"
+                    class="dropdown-flag" />
+                  English</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/es.png"
+                    alt="ES"
+                    class="dropdown-flag" />
+                  Spanish</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/de.png"
+                    alt="DE"
+                    class="dropdown-flag" />
+                  German</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="details.js"></script>
+  </body>
+</html>

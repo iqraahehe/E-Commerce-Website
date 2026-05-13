@@ -1,0 +1,384 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Cart - Brand E-commerce</title>
+    <link
+      href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
+      rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+  </head>
+  <body style="background: #f7fafc">
+    <div id="filter-overlay" class="nav-overlay"></div>
+    <aside class="side-nav-mobile" id="side-nav">
+      <div class="nav-user-header">
+        <button id="close-btn" class="close-btn" aria-label="Close Menu">
+          ✕
+        </button>
+        <div class="avatar-circle">
+          <img src="Assets/avatar=pic1.jpg" alt="User Profile" />
+        </div>
+        <div class="auth-text">Sign in | Register</div>
+      </div>
+      <ul class="nav-links">
+        <li>
+          <a href="index.html"><span class="nav-icon">🏠</span> Home</a>
+        </li>
+        <li>
+          <a href="products.html?category=All category"
+            ><span class="nav-icon">📋</span> Categories</a
+          >
+        </li>
+        <li>
+          <a href="#"><span class="nav-icon">❤️</span> Favorites</a>
+        </li>
+        <li>
+          <a href="cart.html"><span class="nav-icon">📦</span> My orders</a>
+        </li>
+      </ul>
+      <hr class="nav-divider" />
+      <ul class="nav-links">
+        <li>
+          <a href="#"><span class="nav-icon">🌐</span> English | USD</a>
+        </li>
+        <li>
+          <a href="#"><span class="nav-icon">🎧</span> Contact us</a>
+        </li>
+        <li>
+          <a href="#"><span class="nav-icon">🏢</span> About</a>
+        </li>
+      </ul>
+      <hr class="nav-divider" />
+      <ul class="nav-links no-icon">
+        <li><a href="#">User agreement</a></li>
+        <li><a href="#">Partnership</a></li>
+        <li><a href="#">Privacy policy</a></li>
+      </ul>
+    </aside>
+
+   <header class="page-header container desktop-only" style="margin-top: 0px">
+      <div class="header-top-row">
+        <div class="logo-area">
+        
+
+          <a href="index.html" class="logo-wrapper">
+            <img
+              src="Assets/Brand/logo-symbol.svg"
+              alt="Brand Logo"
+              class="brand-logo-img" />
+            <div class="logo-text">Brand</div>
+          </a>
+        </div>
+
+
+        <div class="header-actions desktop-only-flex">
+          <div class="action-item">
+            <span class="icon"
+              ><i class="ph-fill ph-user" style="font-size: 24px"></i></span
+            ><span class="label">Profile</span>
+          </div>
+          <div class="action-item">
+            <span class="icon"
+              ><i
+                class="ph-fill ph-chat-teardrop-dots"
+                style="font-size: 24px"></i></span
+            ><span class="label">Message</span>
+          </div>
+          <div class="action-item">
+            <span class="icon"
+              ><i class="ph-fill ph-heart" style="font-size: 24px"></i></span
+            ><span class="label">Orders</span>
+          </div>
+          <a
+            href="cart.html"
+            class="action-item"
+            style="text-decoration: none; color: inherit"
+            ><span class="icon"
+              ><i class="ph-fill ph-shopping-cart" style="font-size: 24px"></i></span
+            ><span class="label">My cart</span></a
+          >
+        </div>
+
+    
+
+      
+    </header>
+
+    <div
+      class="mobile-details-top-bar mobile-only-flex"
+      style="
+        border-bottom: 1px solid #e3e8ee;
+        padding: 15px 20px;
+        background: #fff;
+      ">
+      <a
+        href="products.html"
+        class="back-arrow"
+        style="
+          color: #1c1c1c;
+          display: flex;
+          align-items: center;
+          gap: 15px;
+          font-size: 18px;
+          font-weight: 600;
+          text-decoration: none;
+        ">
+        <i class="ph ph-arrow-left" style="font-size: 24px"></i>
+        Shopping cart
+      </a>
+    </div>
+
+    <main class="container" style="margin-top: 30px">
+      <h2
+        class="cart-card-header desktop-only"
+        id="cart-title"
+        style="margin-bottom: 0px">
+        My cart (0)
+      </h2>
+
+      <div class="cart-layout">
+        <div class="cart-main">
+          <div class="cart-card" style="padding: 0 20px">
+            <div id="cart-items-container"></div>
+
+            <div
+              class="cart-bottom-actions desktop-only-flex"
+              style="padding: 20px 0">
+              <a
+                href="products.html?category=All category"
+                class="btn-back-shop"
+                ><i class="ph ph-arrow-left"></i> Back to shop</a
+              >
+              <button
+                class="btn-remove-all"
+                id="btn-remove-all"
+                style="display: none">
+                Remove all
+              </button>
+            </div>
+          </div>
+
+          <div class="trust-badges desktop-only-flex">
+            <div class="trust-badge-item">
+              <div class="trust-icon"><i class="ph-fill ph-lock-key"></i></div>
+              <div class="trust-text">
+                <h4>Secure payment</h4>
+                <p>Have you ever finally just</p>
+              </div>
+            </div>
+            <div class="trust-badge-item">
+              <div class="trust-icon">
+                <i class="ph-fill ph-chat-circle-dots"></i>
+              </div>
+              <div class="trust-text">
+                <h4>Customer support</h4>
+                <p>Have you ever finally just</p>
+              </div>
+            </div>
+            <div class="trust-badge-item">
+              <div class="trust-icon"><i class="ph-fill ph-truck"></i></div>
+              <div class="trust-text">
+                <h4>Free delivery</h4>
+                <p>Have you ever finally just</p>
+              </div>
+            </div>
+          </div>
+        </div>
+
+        <div class="cart-sidebar">
+          <div class="coupon-box desktop-only">
+            <p>Have a coupon?</p>
+            <div class="coupon-input-group">
+              <input type="text" id="coupon-input" placeholder="Add coupon" />
+              <button id="btn-apply-coupon">Apply</button>
+            </div>
+          </div>
+
+          <div class="summary-box">
+            <div class="summary-row">
+              <span>Subtotal:</span> <span id="summary-subtotal">$0.00</span>
+            </div>
+            <div class="summary-row desktop-only-flex">
+              <span>Discount:</span>
+              <span id="summary-discount" style="color: #fa3434">- $0.00</span>
+            </div>
+            <div class="summary-row">
+              <span>Tax:</span>
+              <span id="summary-tax" style="color: #00b517">+ $0.00</span>
+            </div>
+            <div class="summary-row total">
+              <span>Total:</span> <span id="summary-total">$0.00</span>
+            </div>
+
+            <button class="btn-checkout">Checkout</button>
+
+            <div
+              class="payment-icons desktop-only-flex"
+              style="margin-top: 15px; text-align: center">
+              <img
+                src="Assets/payments.png"
+                alt="Accepted Payment Methods"
+                style="width: 100%; max-width: 220px; object-fit: contain" />
+            </div>
+          </div>
+        </div>
+      </div>
+      <div class="saved-section">
+        <h3 class="cart-card-header">Saved for later</h3>
+        <div class="products-container" id="saved-items-container"></div>
+      </div>
+
+      <section
+        class="super-discount-banner desktop-only-flex"
+        style="margin-top: 20px">
+        <div class="banner-text">
+          <h2>Super discount on more than 100 USD</h2>
+          <p>Have you ever finally just write dummy info</p>
+        </div>
+        <button class="btn-orange">Shop now</button>
+      </section>
+    </main>
+
+    <footer class="site-footer" style="margin-top: 40px">
+      <div class="container footer-columns">
+        <div class="col-main logo">
+          <div class="logo-wrapper" style="margin-bottom: 15px">
+            <img
+              src="Assets/Brand/logo-symbol.svg"
+              alt="Brand Logo"
+              class="brand-logo-img" />
+            <div class="logo-text">Brand</div>
+          </div>
+          <p>
+            Best information about the company<br />goes here but now lorem
+            ipsum is
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-facebook-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-twitter-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-linkedin-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-instagram-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-youtube-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col">
+          <strong>About</strong>
+          <ul>
+            <li>About Us</li>
+            <li>Find store</li>
+            <li>Categories</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>Partnership</strong>
+          <ul>
+            <li>About Us</li>
+            <li>Find store</li>
+            <li>Categories</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>Information</strong>
+          <ul>
+            <li>Help Center</li>
+            <li>Money Refund</li>
+            <li>Shipping</li>
+            <li>Contact us</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>For users</strong>
+          <ul>
+            <li>Login</li>
+            <li>Register</li>
+            <li>Settings</li>
+            <li>My Orders</li>
+          </ul>
+        </div>
+        <div class="col-apps">
+          <strong>Get app</strong>
+          <img
+            src="Assets/playstore.png"
+            alt="Download on the App Store"
+            class="app-badge" />
+          <img
+            src="Assets/googleplay.png"
+            alt="Get it on Google Play"
+            class="app-badge" />
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>© 2026 Ecommerce.</span>
+          <div class="dropdown-wrapper footer-dropdown">
+            <span
+              class="language"
+              style="display: flex; align-items: center; color: #1c1c1c">
+              <img
+                src="https://flagcdn.com/w20/us.png"
+                alt="US"
+                class="dropdown-flag"
+                style="margin-right: 6px" />
+              English ⌃
+            </span>
+            <ul class="dropdown-menu dropup-menu">
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/us.png"
+                    alt="US"
+                    class="dropdown-flag" />
+                  English</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/es.png"
+                    alt="ES"
+                    class="dropdown-flag" />
+                  Spanish</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/de.png"
+                    alt="DE"
+                    class="dropdown-flag" />
+                  German</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="cart.js"></script>
+  </body>
+</html>
