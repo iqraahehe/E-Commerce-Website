@@ -6,7 +6,8 @@
     <title>Brand E-commerce</title>
     <link
       href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap"
-      rel="stylesheet" />
+      rel="stylesheet"
+    />
     <link rel="stylesheet" href="index.css" />
     <script src="https://unpkg.com/@phosphor-icons/web"></script>
   </head>
@@ -71,7 +72,8 @@
               display: flex;
               color: #1c1c1c;
               cursor: pointer;
-            ">
+            "
+          >
             <i class="ph ph-list" style="font-size: 26px"></i>
           </button>
 
@@ -79,19 +81,22 @@
             <img
               src="Assets/Brand/logo-symbol.svg"
               alt="Brand Logo"
-              class="brand-logo-img" />
+              class="brand-logo-img"
+            />
             <div class="logo-text">Brand</div>
           </a>
         </div>
         <form
           class="search-form desktop-only-flex"
           action="products.html"
-          method="GET">
+          method="GET"
+        >
           <input
             type="search"
             name="search"
             placeholder="Search"
-            aria-label="Search" />
+            aria-label="Search"
+          />
           <select class="search-category-dropdown" name="category">
             <option value="All category">All category</option>
             <option value="Automobiles">Automobiles</option>
@@ -110,39 +115,44 @@
         </form>
 
         <div class="header-actions desktop-only-flex">
-          <div class="action-item">
+          <div class="action-item" id="header-profile-action" style="cursor:pointer">
             <span class="icon"
               ><i class="ph-fill ph-user" style="font-size: 24px"></i></span
             ><span class="label">Profile</span>
           </div>
-          <div class="action-item">
+          <a
+            href="messages.html"
+            class="action-item"
+            style="text-decoration: none; color: inherit"
+          >
             <span class="icon"
               ><i
                 class="ph-fill ph-chat-teardrop-dots"
-                style="font-size: 24px"></i></span
+                style="font-size: 24px"
+              ></i></span
             ><span class="label">Message</span>
-          </div>
-          <div class="action-item">
-            <span class="icon"
-              ><i class="ph-fill ph-heart" style="font-size: 24px"></i></span
-            ><span class="label">Orders</span>
-          </div>
+          </a>
+                    <a href="order.html" class="action-item" style="text-decoration: none; color: inherit"><span class="icon"><i class="ph-fill ph-heart" style="font-size: 24px"></i></span><span class="label">Orders</span></a>
+
           <a
             href="cart.html"
             class="action-item"
             style="text-decoration: none; color: inherit"
             ><span class="icon"
-              ><i class="ph-fill ph-shopping-cart" style="font-size: 24px"></i></span
+              ><i
+                class="ph-fill ph-shopping-cart"
+                style="font-size: 24px"
+              ></i></span
             ><span class="label">My cart</span></a
           >
         </div>
 
-       <div class="header-actions mobile-only-flex">
-          <a href="cart.html" class="icon cart" style="color: inherit;">
-            <i class="ph ph-shopping-cart" style="font-size: 24px;"></i>
+        <div class="header-actions mobile-only-flex">
+          <a href="cart.html" class="icon cart" style="color: inherit">
+            <i class="ph ph-shopping-cart" style="font-size: 24px"></i>
           </a>
-          <a href="#" class="icon profile" style="color: inherit;">
-            <i class="ph ph-user" style="font-size: 24px;"></i>
+          <a href="#" class="icon profile" id="mobile-profile-icon" style="color: inherit">
+            <i class="ph ph-user" style="font-size: 24px"></i>
           </a>
         </div>
       </div>
@@ -156,7 +166,8 @@
             type="search"
             name="search"
             placeholder="Search"
-            aria-label="Search" />
+            aria-label="Search"
+          />
         </form>
       </div>
 
@@ -202,7 +213,8 @@
                 src="https://flagcdn.com/w20/de.png"
                 alt="DE"
                 class="dropdown-flag"
-                style="margin-left: 6px; margin-right: 2px" />
+                style="margin-left: 6px; margin-right: 2px"
+              />
               ▾</span
             >
             <ul class="dropdown-menu">
@@ -211,7 +223,8 @@
                   ><img
                     src="https://flagcdn.com/w20/de.png"
                     alt="DE"
-                    class="dropdown-flag" />
+                    class="dropdown-flag"
+                  />
                   Germany</a
                 >
               </li>
@@ -220,7 +233,8 @@
                   ><img
                     src="https://flagcdn.com/w20/us.png"
                     alt="US"
-                    class="dropdown-flag" />
+                    class="dropdown-flag"
+                  />
                   United States</a
                 >
               </li>
@@ -229,7 +243,8 @@
                   ><img
                     src="https://flagcdn.com/w20/gb.png"
                     alt="GB"
-                    class="dropdown-flag" />
+                    class="dropdown-flag"
+                  />
                   Great Britain</a
                 >
               </li>
@@ -238,7 +253,8 @@
                   ><img
                     src="https://flagcdn.com/w20/au.png"
                     alt="AU"
-                    class="dropdown-flag" />
+                    class="dropdown-flag"
+                  />
                   Australia</a
                 >
               </li>
@@ -307,11 +323,12 @@
           <img
             src="Assets/banner.jpg"
             alt="Electronic items banner"
-            class="banner-bg-img" />
+            class="banner-bg-img"
+          />
         </div>
 
         <div class="hero-user-cards desktop-only-flex">
-          <div class="card card-login">
+          <div class="card card-login" id="hero-user-card">
             <div class="user-header">
               <div class="user-avatar">
                 <img src="Assets/avatar=pic1.jpg" alt="User Profile" />
@@ -321,9 +338,8 @@
                 let's get started
               </h4>
             </div>
-            <button class="btn-join">Join now</button>
-            <button class="btn-login">Log in</button>
-          </div>
+           <button class="btn-join" onclick="openAuthModal('register')" style="display: block; width: 100%; cursor: pointer;">Join now</button>
+            <button class="btn-login" onclick="openAuthModal('login')" style="display: block; width: 100%; cursor: pointer;">Log in</button>
           <div class="card card-promo">
             Get US $10 off <br />
             with a new <br />
@@ -367,7 +383,8 @@
             <div class="img-placeholder">
               <img
                 src="Assets/Image/tech/smartwatches.jpg"
-                alt="Smart watches" />
+                alt="Smart watches"
+              />
             </div>
             <p>Smart watches</p>
             <span class="discount">-25%</span>
@@ -420,7 +437,8 @@
             <div class="product-img-wrapper">
               <img
                 src="Assets/Image/interior/softchair.jpg"
-                alt="Soft chairs" />
+                alt="Soft chairs"
+              />
             </div>
           </div>
           <div class="sub-category-card">
@@ -440,7 +458,8 @@
             <div class="product-img-wrapper">
               <img
                 src="Assets/Image/interior/kitchen.jpg"
-                alt="Kitchen dishes" />
+                alt="Kitchen dishes"
+              />
             </div>
           </div>
           <div class="sub-category-card">
@@ -478,7 +497,8 @@
             <div class="product-img-wrapper">
               <img
                 src="Assets/Image/interior/homeapp.jpg"
-                alt="Home appliance" />
+                alt="Home appliance"
+              />
             </div>
           </div>
           <div class="sub-category-card">
@@ -515,7 +535,8 @@
             <div class="product-img-wrapper">
               <img
                 src="Assets/Image/tech/smartwatches.jpg"
-                alt="Smart watches" />
+                alt="Smart watches"
+              />
             </div>
           </div>
           <div class="sub-category-card">
@@ -598,23 +619,34 @@
           </p>
           <button
             class="button-primary mobile-only"
-            style="margin-top: 15px; font-weight: 500">
+            style="margin-top: 15px; font-weight: 500"
+          >
             Send inquiry
           </button>
         </div>
         <div class="quote-form-card desktop-only">
           <h3>Send quote to suppliers</h3>
-          <input type="text" placeholder="What item you need?" />
-          <textarea placeholder="Type more details" rows="3"></textarea>
+          <input
+            type="text"
+            id="quote-item"
+            placeholder="What item you need?"
+          />
+          <textarea
+            id="quote-details"
+            placeholder="Type more details"
+            rows="3"
+          ></textarea>
           <div class="quantity-row">
-            <input type="text" placeholder="Quantity" />
-            <select>
-              <option>Pcs</option>
-              <option>Kg</option>
-              <option>Box</option>
+            <input type="text" id="quote-qty" placeholder="Quantity" />
+            <select id="quote-unit">
+              <option value="Pcs">Pcs</option>
+              <option value="Kg">Kg</option>
+              <option value="Box">Box</option>
             </select>
           </div>
-          <button class="button-primary">Send inquiry</button>
+          <button class="button-primary" id="btn-submit-quote">
+            Send inquiry
+          </button>
         </div>
       </section>
 
@@ -625,7 +657,8 @@
             <div class="img-placeholder">
               <img
                 src="Assets/Image/cloth/tshirt.jpg"
-                alt="T-shirts with multiple colors" />
+                alt="T-shirts with multiple colors"
+              />
             </div>
             <h4>$10.30</h4>
             <p>T-shirts with multiple colors, for men</p>
@@ -635,7 +668,8 @@
             <div class="img-placeholder">
               <img
                 src="Assets/Image/cloth/shorts.jpg"
-                alt="Jeans shorts for men" />
+                alt="Jeans shorts for men"
+              />
             </div>
             <h4>$10.30</h4>
             <p>Jeans shorts for men blue color</p>
@@ -645,7 +679,8 @@
             <div class="img-placeholder">
               <img
                 src="Assets/Image/cloth/jacket.jpg"
-                alt="Brown winter coat medium" />
+                alt="Brown winter coat medium"
+              />
             </div>
             <h4>$12.50</h4>
             <p>Brown winter coat medium size</p>
@@ -655,7 +690,8 @@
             <div class="img-placeholder">
               <img
                 src="Assets/Image/cloth/bag.jpg"
-                alt="Jeans bag for travel" />
+                alt="Jeans bag for travel"
+              />
             </div>
             <h4>$34.00</h4>
             <p>Jeans bag for travel for men</p>
@@ -681,7 +717,8 @@
             <div class="img-placeholder">
               <img
                 src="Assets/Image/tech/gaming.jpg"
-                alt="Headset for gaming" />
+                alt="Headset for gaming"
+              />
             </div>
             <h4>$8.99</h4>
             <p>Headset for gaming with mic</p>
@@ -691,7 +728,8 @@
             <div class="img-placeholder">
               <img
                 src="Assets/Image/tech/smartwatches.jpg"
-                alt="Smartwatch silver color" />
+                alt="Smartwatch silver color"
+              />
             </div>
             <h4>$19.00</h4>
             <p>Smartwatch silver color modern</p>
@@ -755,7 +793,8 @@
             <div class="service-img-wrapper">
               <img
                 src="Assets/monitoring.jpg"
-                alt="Product monitoring and inspection" />
+                alt="Product monitoring and inspection"
+              />
             </div>
             <div class="service-info">
               <p>Product monitoring<br />and inspection</p>
@@ -774,7 +813,8 @@
             <img
               src="https://flagcdn.com/w40/ae.png"
               alt="AE"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">Arabic Emirates</div>
               <div class="domain">shopname.ae</div>
@@ -784,7 +824,8 @@
             <img
               src="https://flagcdn.com/w40/au.png"
               alt="AU"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">Australia</div>
               <div class="domain">shopname.ae</div>
@@ -794,7 +835,8 @@
             <img
               src="https://flagcdn.com/w40/us.png"
               alt="US"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">United States</div>
               <div class="domain">shopname.ae</div>
@@ -804,7 +846,8 @@
             <img
               src="https://flagcdn.com/w40/ru.png"
               alt="RU"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">Russia</div>
               <div class="domain">shopname.ru</div>
@@ -814,7 +857,8 @@
             <img
               src="https://flagcdn.com/w40/it.png"
               alt="IT"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">Italy</div>
               <div class="domain">shopname.it</div>
@@ -824,7 +868,8 @@
             <img
               src="https://flagcdn.com/w40/dk.png"
               alt="DK"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">Denmark</div>
               <div class="domain">denmark.com.dk</div>
@@ -834,7 +879,8 @@
             <img
               src="https://flagcdn.com/w40/fr.png"
               alt="FR"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">France</div>
               <div class="domain">shopname.com.fr</div>
@@ -844,7 +890,8 @@
             <img
               src="https://flagcdn.com/w40/ae.png"
               alt="AE"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">Arabic Emirates</div>
               <div class="domain">shopname.ae</div>
@@ -854,7 +901,8 @@
             <img
               src="https://flagcdn.com/w40/cn.png"
               alt="CN"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">China</div>
               <div class="domain">shopname.ae</div>
@@ -864,7 +912,8 @@
             <img
               src="https://flagcdn.com/w40/gb.png"
               alt="GB"
-              class="flag-img" />
+              class="flag-img"
+            />
             <div class="supplier-info">
               <div class="country">Great Britain</div>
               <div class="domain">shopname.co.uk</div>
@@ -885,11 +934,13 @@
           <div class="input-with-icon">
             <i
               class="ph ph-envelope-simple"
-              style="font-size: 20px; color: #8b96a5"></i>
+              style="font-size: 20px; color: #8b96a5"
+            ></i>
             <input
               type="email"
               placeholder="Email"
-              aria-label="Email Address" />
+              aria-label="Email Address"
+            />
           </div>
           <button type="submit" class="button-primary">Subscribe</button>
         </form>
@@ -903,7 +954,8 @@
             <img
               src="Assets/Brand/logo-symbol.svg"
               alt="Brand Logo"
-              class="brand-logo-img" />
+              class="brand-logo-img"
+            />
 
             <div class="logo-text">Brand</div>
           </div>
@@ -916,27 +968,32 @@
             <a href="#" class="social-circle"
               ><i
                 class="ph-fill ph-facebook-logo"
-                style="color: white; font-size: 18px"></i
+                style="color: white; font-size: 18px"
+              ></i
             ></a>
             <a href="#" class="social-circle"
               ><i
                 class="ph-fill ph-twitter-logo"
-                style="color: white; font-size: 18px"></i
+                style="color: white; font-size: 18px"
+              ></i
             ></a>
             <a href="#" class="social-circle"
               ><i
                 class="ph-fill ph-linkedin-logo"
-                style="color: white; font-size: 18px"></i
+                style="color: white; font-size: 18px"
+              ></i
             ></a>
             <a href="#" class="social-circle"
               ><i
                 class="ph-fill ph-instagram-logo"
-                style="color: white; font-size: 18px"></i
+                style="color: white; font-size: 18px"
+              ></i
             ></a>
             <a href="#" class="social-circle"
               ><i
                 class="ph-fill ph-youtube-logo"
-                style="color: white; font-size: 18px"></i
+                style="color: white; font-size: 18px"
+              ></i
             ></a>
           </div>
         </div>
@@ -981,11 +1038,13 @@
           <img
             src="Assets/playstore.png"
             alt="Download on the App Store"
-            class="app-badge" />
+            class="app-badge"
+          />
           <img
             src="Assets/googleplay.png"
             alt="Get it on Google Play"
-            class="app-badge" />
+            class="app-badge"
+          />
         </div>
       </div>
       <div class="footer-bottom">
@@ -995,12 +1054,14 @@
           <div class="dropdown-wrapper footer-dropdown">
             <span
               class="language"
-              style="display: flex; align-items: center; color: #1c1c1c">
+              style="display: flex; align-items: center; color: #1c1c1c"
+            >
               <img
                 src="https://flagcdn.com/w20/us.png"
                 alt="US"
                 class="dropdown-flag"
-                style="margin-right: 6px" />
+                style="margin-right: 6px"
+              />
               English ⌃
             </span>
             <ul class="dropdown-menu dropup-menu">
@@ -1009,7 +1070,8 @@
                   ><img
                     src="https://flagcdn.com/w20/us.png"
                     alt="US"
-                    class="dropdown-flag" />
+                    class="dropdown-flag"
+                  />
                   English</a
                 >
               </li>
@@ -1018,7 +1080,8 @@
                   ><img
                     src="https://flagcdn.com/w20/es.png"
                     alt="ES"
-                    class="dropdown-flag" />
+                    class="dropdown-flag"
+                  />
                   Spanish</a
                 >
               </li>
@@ -1027,7 +1090,8 @@
                   ><img
                     src="https://flagcdn.com/w20/de.png"
                     alt="DE"
-                    class="dropdown-flag" />
+                    class="dropdown-flag"
+                  />
                   German</a
                 >
               </li>
@@ -1038,12 +1102,78 @@
     </footer>
 
     <div id="success-toast" class="toast-notification">
-  <div class="toast-content">
-    <i class="ph-fill ph-check-circle toast-icon"></i>
-    <span class="toast-message">Success</span>
-  </div>
-  <button id="close-toast" class="toast-close" aria-label="Close">✕</button>
-</div>
+      <div class="toast-content">
+        <i class="ph-fill ph-check-circle toast-icon"></i>
+        <span class="toast-message">Success</span>
+      </div>
+      <button id="close-toast" class="toast-close" aria-label="Close">✕</button>
+    </div>
+
+    <div class="prof-modal-overlay" id="index-signout-modal">
+      <div class="prof-modal-box">
+        <div class="prof-modal-header">
+          <h3><i class="ph-fill ph-sign-out" style="color:#fa3434"></i> Sign Out</h3>
+          <button class="prof-modal-close" onclick="document.getElementById('index-signout-modal').classList.remove('open')">&#x2715;</button>
+        </div>
+        <div class="prof-modal-body" style="text-align: center;">
+          <div style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px;background:#fff0f0;">
+            <i class="ph-fill ph-sign-out" style="color:#fa3434"></i>
+          </div>
+          <p style="font-size:18px;font-weight:700;color:#1c1c1c;margin:0 0 8px;">Sign out of your account?</p>
+          <p style="font-size:13px;color:#8b96a5;line-height:1.6;margin:0;">You'll need to sign in again to access your orders, messages, and saved items.</p>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:center;padding:4px 24px 22px;">
+          <button style="background:#fff;color:#1c1c1c;border:1px solid #dee2e6;border-radius:6px;padding:10px 22px;font-size:13px;font-weight:500;cursor:pointer;" onclick="document.getElementById('index-signout-modal').classList.remove('open')">Cancel</button>
+          <button style="background:#fa3434;color:#fff;border:none;border-radius:6px;padding:10px 22px;font-size:13px;font-weight:500;cursor:pointer;" onclick="doSignOut()"><i class="ph ph-sign-out"></i> Sign out</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prof-modal-overlay" id="auth-modal">
+      <div class="prof-modal-box">
+        <div class="prof-modal-header">
+          <h3 id="auth-modal-title"><i class="ph-fill ph-user-circle" style="color:#0d7dfa; font-size: 20px;"></i> Log In</h3>
+          <button class="prof-modal-close" onclick="closeAuthModal()">&#x2715;</button>
+        </div>
+        <div class="prof-modal-body">
+          
+          <form id="popup-login-form">
+            <div style="margin-bottom: 15px;">
+              <label style="font-size: 13px; color: #8b96a5; font-weight: 600;">Email Address</label>
+              <input type="email" id="login-email" class="auth-input-styled" placeholder="user@example.com" required />
+            </div>
+            <div style="margin-bottom: 15px;">
+              <label style="font-size: 13px; color: #8b96a5; font-weight: 600;">Password</label>
+              <input type="password" id="login-password" class="auth-input-styled" placeholder="••••••••" required />
+            </div>
+            <button type="submit" class="auth-btn-styled">Log in</button>
+            <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #505050;">
+              Don't have an account? <a href="#" onclick="switchAuthMode('register')" style="color: #0d7dfa; font-weight: 600; text-decoration: none;">Join now</a>
+            </p>
+          </form>
+
+          <form id="popup-register-form" style="display: none;">
+            <div style="margin-bottom: 15px;">
+              <label style="font-size: 13px; color: #8b96a5; font-weight: 600;">Full Name</label>
+              <input type="text" id="reg-name" class="auth-input-styled" placeholder="John Doe" required />
+            </div>
+            <div style="margin-bottom: 15px;">
+              <label style="font-size: 13px; color: #8b96a5; font-weight: 600;">Email Address</label>
+              <input type="email" id="reg-email" class="auth-input-styled" placeholder="user@example.com" required />
+            </div>
+            <div style="margin-bottom: 15px;">
+              <label style="font-size: 13px; color: #8b96a5; font-weight: 600;">Password</label>
+              <input type="password" id="reg-password" class="auth-input-styled" placeholder="Min 6 characters" minlength="6" required />
+            </div>
+            <button type="submit" class="auth-btn-styled">Create Account</button>
+            <p style="text-align: center; margin-top: 20px; font-size: 14px; color: #505050;">
+              Already have an account? <a href="#" onclick="switchAuthMode('login')" style="color: #0d7dfa; font-weight: 600; text-decoration: none;">Log in</a>
+            </p>
+          </form>
+
+        </div>
+      </div>
+    </div>
 
     <script src="index.js"></script>
   </body>
