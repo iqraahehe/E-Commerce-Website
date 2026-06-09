@@ -35,7 +35,7 @@
           <a href="#"><span class="nav-icon">❤️</span> Favorites</a>
         </li>
         <li>
-          <a href="cart.html"><span class="nav-icon">📦</span> My orders</a>
+          <a href="order.html"><span class="nav-icon">📦</span> My orders</a>
         </li>
       </ul>
       <hr class="nav-divider" />
@@ -74,23 +74,16 @@
 
 
         <div class="header-actions desktop-only-flex">
-          <div class="action-item">
-            <span class="icon"
-              ><i class="ph-fill ph-user" style="font-size: 24px"></i></span
-            ><span class="label">Profile</span>
-          </div>
-          <div class="action-item">
-            <span class="icon"
-              ><i
-                class="ph-fill ph-chat-teardrop-dots"
-                style="font-size: 24px"></i></span
-            ><span class="label">Message</span>
-          </div>
-          <div class="action-item">
-            <span class="icon"
+          <div class="action-item" id="header-profile-action" style="cursor:pointer"><span class="icon"><i class="ph-fill ph-user" style="font-size: 24px"></i></span><span class="label">Profile</span></div>
+          <a href="messages.html" class="action-item" style="text-decoration: none; color: inherit"><span class="icon"><i class="ph-fill ph-chat-teardrop-dots" style="font-size: 24px"></i></span><span class="label">Message</span></a>
+          <a
+            href="order.html"
+            class="action-item"
+            style="text-decoration: none; color: inherit"
+            ><span class="icon"
               ><i class="ph-fill ph-heart" style="font-size: 24px"></i></span
-            ><span class="label">Orders</span>
-          </div>
+            ><span class="label">Orders</span></a
+          >
           <a
             href="cart.html"
             class="action-item"
@@ -379,6 +372,56 @@
       </div>
     </footer>
 
+    <!-- Checkout Confirmation Modal -->
+    <div class="prof-modal-overlay" id="checkout-confirm-modal">
+      <div class="prof-modal-box">
+        <div class="prof-modal-header">
+          <h3><i class="ph-fill ph-shopping-bag" style="color:#0d7dfa"></i> Confirm Order</h3>
+          <button class="prof-modal-close" onclick="document.getElementById('checkout-confirm-modal').classList.remove('open')">&#x2715;</button>
+        </div>
+        <div class="prof-modal-body" style="text-align:center;">
+          <div style="width:64px;height:64px;border-radius:50%;display:flex;align-items:center;justify-content:center;margin:0 auto 16px;font-size:30px;background:#e3f0ff;">
+            <i class="ph-fill ph-package" style="color:#0d7dfa"></i>
+          </div>
+          <p style="font-size:18px;font-weight:700;color:#1c1c1c;margin:0 0 8px;">Place your order?</p>
+          <p style="font-size:13px;color:#8b96a5;line-height:1.6;margin:0 0 16px;">
+            <span id="checkout-modal-items">0 item(s)</span> &nbsp;•&nbsp; Total: <strong id="checkout-modal-total" style="color:#1c1c1c;">$0.00</strong>
+          </p>
+          <p style="font-size:12px;color:#8b96a5;">Your order will be placed and moved to Order History.</p>
+        </div>
+        <div style="display:flex;gap:10px;justify-content:center;padding:4px 24px 22px;">
+          <button id="btn-cancel-checkout" style="background:#fff;color:#1c1c1c;border:1px solid #dee2e6;border-radius:6px;padding:10px 22px;font-size:13px;font-weight:500;cursor:pointer;font-family:inherit;">Cancel</button>
+          <button id="btn-confirm-checkout" style="background:#0d7dfa;color:#fff;border:none;border-radius:6px;padding:10px 22px;font-size:13px;font-weight:600;cursor:pointer;font-family:inherit;"><i class="ph ph-check"></i> Confirm order</button>
+        </div>
+      </div>
+    </div>
+
+    <!-- Auth Modal (needed for auth guard on this page) -->
+    <div class="prof-modal-overlay" id="auth-modal">
+      <div class="prof-modal-box">
+        <div class="prof-modal-header">
+          <h3 id="auth-modal-title"><i class="ph-fill ph-user-circle" style="color:#0d7dfa;font-size:20px;"></i> Log In</h3>
+          <button class="prof-modal-close" onclick="closeAuthModal()">&#x2715;</button>
+        </div>
+        <div class="prof-modal-body">
+          <form id="popup-login-form">
+            <div style="margin-bottom:15px;"><label style="font-size:13px;color:#8b96a5;font-weight:600;">Email Address</label><input type="email" id="login-email" class="auth-input-styled" placeholder="user@example.com" required /></div>
+            <div style="margin-bottom:15px;"><label style="font-size:13px;color:#8b96a5;font-weight:600;">Password</label><input type="password" id="login-password" class="auth-input-styled" placeholder="••••••••" required /></div>
+            <button type="submit" class="auth-btn-styled">Log in</button>
+            <p style="text-align:center;margin-top:20px;font-size:14px;color:#505050;">Don't have an account? <a href="#" onclick="switchAuthMode('register')" style="color:#0d7dfa;font-weight:600;text-decoration:none;">Join now</a></p>
+          </form>
+          <form id="popup-register-form" style="display:none;">
+            <div style="margin-bottom:15px;"><label style="font-size:13px;color:#8b96a5;font-weight:600;">Full Name</label><input type="text" id="reg-name" class="auth-input-styled" placeholder="John Doe" required /></div>
+            <div style="margin-bottom:15px;"><label style="font-size:13px;color:#8b96a5;font-weight:600;">Email Address</label><input type="email" id="reg-email" class="auth-input-styled" placeholder="user@example.com" required /></div>
+            <div style="margin-bottom:15px;"><label style="font-size:13px;color:#8b96a5;font-weight:600;">Password</label><input type="password" id="reg-password" class="auth-input-styled" placeholder="Min 6 characters" minlength="6" required /></div>
+            <button type="submit" class="auth-btn-styled">Create Account</button>
+            <p style="text-align:center;margin-top:20px;font-size:14px;color:#505050;">Already have an account? <a href="#" onclick="switchAuthMode('login')" style="color:#0d7dfa;font-weight:600;text-decoration:none;">Log in</a></p>
+          </form>
+        </div>
+      </div>
+    </div>
+
+    <script src="index.js"></script>
     <script src="cart.js"></script>
   </body>
 </html>
