@@ -1,0 +1,289 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>My Profile - Brand E-commerce</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&display=swap" rel="stylesheet" />
+    <link rel="stylesheet" href="index.css" />
+    <script src="https://unpkg.com/@phosphor-icons/web"></script>
+    <style>
+      /* --- ADVANCED PROFILE STYLES --- */
+      .prof-container { max-width: 860px; margin: 36px auto 60px; padding: 0 20px; }
+      .prof-page-title { font-size: 22px; font-weight: 700; color: #1c1c1c; margin-bottom: 24px; display: flex; align-items: center; gap: 10px; }
+      .prof-hero { background: linear-gradient(135deg,#e3f0ff 0%,#f0f7ff 100%); border: 1px solid #d0e4ff; border-radius: 16px; padding: 32px 36px; display: flex; align-items: center; gap: 28px; margin-bottom: 24px; position: relative; }
+      .prof-avatar { width: 88px; height: 88px; border-radius: 50%; background: #0d7dfa; display: flex; align-items: center; justify-content: center; font-size: 34px; font-weight: 700; color: #fff; flex-shrink: 0; letter-spacing: -1px; box-shadow: 0 4px 16px rgba(13,125,250,0.3); }
+      .prof-hero-info h2 { font-size: 22px; font-weight: 700; color: #1c1c1c; margin-bottom: 4px; }
+      .prof-hero-info p { font-size: 14px; color: #8b96a5; }
+      .prof-member-badge { display: inline-flex; align-items: center; gap: 5px; background: #fff; border: 1px solid #d0e4ff; color: #0d7dfa; font-size: 12px; font-weight: 600; padding: 4px 10px; border-radius: 20px; margin-top: 8px; }
+      .prof-edit-hero-btn { position: absolute; top: 20px; right: 20px; background: #fff; border: 1.5px solid #dee2e6; border-radius: 8px; padding: 8px 16px; font-size: 13px; font-weight: 600; color: #1c1c1c; cursor: pointer; display: flex; align-items: center; gap: 6px; font-family: Inter,sans-serif; transition: all .15s; }
+      .prof-edit-hero-btn:hover { border-color: #0d7dfa; color: #0d7dfa; background: #f0f7ff; }
+      .prof-edit-hero-btn.active { background: #0d7dfa; color: #fff; border-color: #0d7dfa; }
+      .prof-grid { display: grid; grid-template-columns: 1fr 1fr; gap: 20px; }
+      .prof-card { background: #fff; border: 1px solid #e3e8ee; border-radius: 14px; padding: 24px 26px; }
+      .prof-card.full-width { grid-column: 1 / -1; }
+      .prof-card-title { font-size: 13px; font-weight: 600; text-transform: uppercase; letter-spacing: .06em; color: #8b96a5; margin-bottom: 18px; display: flex; align-items: center; gap: 7px; }
+      .prof-field { display: flex; flex-direction: column; margin-bottom: 16px; }
+      .prof-field:last-child { margin-bottom: 0; }
+      .prof-field label { font-size: 12px; font-weight: 500; color: #8b96a5; margin-bottom: 5px; text-transform: uppercase; letter-spacing: .04em; }
+      .prof-field-value { font-size: 15px; font-weight: 500; color: #1c1c1c; padding: 10px 0; border-bottom: 1.5px solid #f0f0f0; min-height: 40px; display: flex; align-items: center; }
+      .prof-field-value.empty { color: #c0c8d2; font-style: italic; font-weight: 400; font-size: 14px; }
+      .prof-field-value.password-dots { font-size: 20px; letter-spacing: 3px; color: #505050; }
+      .prof-input { width: 100%; padding: 10px 13px; border: 1.5px solid #e3e8ee; border-radius: 8px; font-size: 14px; font-family: Inter,sans-serif; color: #1c1c1c; outline: none; transition: border-color .15s; background: #fff; }
+      .prof-input:focus { border-color: #0d7dfa; box-shadow: 0 0 0 3px rgba(13,125,250,.1); }
+      .prof-input:disabled { background: #f7fafc; color: #8b96a5; cursor: not-allowed; }
+      .prof-input.readonly-styled { background: #f7fafc; color: #505050; cursor: default; border-color: #e3e8ee; }
+      select.prof-input { appearance: none; -webkit-appearance: none; background: #fff url("data:image/svg+xml;charset=UTF-8,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%238b96a5' stroke-width='2'%3E%3Cpolyline points='6 9 12 15 18 9'%3E%3C/polyline%3E%3C/svg%3E") no-repeat right 12px center; background-size: 14px; padding-right: 36px; cursor: pointer; }
+      .prof-password-group { position: relative; }
+      .prof-pw-toggle { position: absolute; right: 12px; top: 50%; transform: translateY(-50%); background: none; border: none; cursor: pointer; color: #8b96a5; font-size: 18px; padding: 0; line-height: 1; }
+      .prof-pw-toggle:hover { color: #1c1c1c; }
+      .prof-action-bar { display: none; align-items: center; justify-content: flex-end; gap: 12px; margin-top: 24px; padding: 20px 26px; background: #fff; border: 1px solid #e3e8ee; border-radius: 14px; }
+      .prof-action-bar.visible { display: flex; }
+      .prof-btn-save { background: #0d7dfa; color: #fff; border: none; border-radius: 8px; padding: 11px 28px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: Inter,sans-serif; transition: background .15s; display: flex; align-items: center; gap: 7px; }
+      .prof-btn-save:hover { background: #0b6cd8; }
+      .prof-btn-cancel { background: #fff; color: #505050; border: 1.5px solid #dee2e6; border-radius: 8px; padding: 11px 24px; font-size: 14px; font-weight: 600; cursor: pointer; font-family: Inter,sans-serif; transition: background .15s; }
+      .prof-btn-cancel:hover { background: #f7fafc; }
+      .prof-alert { display: none; padding: 12px 16px; border-radius: 8px; font-size: 13px; font-weight: 500; margin-bottom: 16px; align-items: center; gap: 8px; }
+      .prof-alert.success { display: flex; background: #e8f9ed; color: #00873f; border: 1px solid #b8eecb; }
+      .prof-alert.error   { display: flex; background: #fff3f3; color: #c62828; border: 1px solid #ffcdd2; }
+      .prof-stats { display: grid; grid-template-columns: repeat(3,1fr); gap: 14px; margin-bottom: 24px; }
+      .prof-stat-card { background: #fff; border: 1px solid #e3e8ee; border-radius: 12px; padding: 18px 20px; text-align: center; }
+      .prof-stat-num { font-size: 26px; font-weight: 700; color: #0d7dfa; line-height: 1; margin-bottom: 4px; }
+      .prof-stat-label { font-size: 12px; color: #8b96a5; font-weight: 500; }
+      .prof-danger { border-color: #ffe0e0; background: #fffafa; }
+      .prof-danger .prof-card-title { color: #e53935; }
+      .prof-btn-danger { background: #fff; color: #e53935; border: 1.5px solid #ffcdd2; border-radius: 8px; padding: 10px 20px; font-size: 13px; font-weight: 600; cursor: pointer; font-family: Inter,sans-serif; transition: all .15s; display: inline-flex; align-items: center; gap: 6px; }
+      .prof-btn-danger:hover { background: #fff3f3; border-color: #e53935; }
+      
+      @media (max-width: 700px) {
+        .prof-grid { grid-template-columns: 1fr; }
+        .prof-card.full-width { grid-column: 1; }
+        .prof-hero { flex-direction: column; text-align: center; padding: 28px 20px 70px; }
+        .prof-stats { grid-template-columns: repeat(3,1fr); gap: 10px; }
+        .prof-stat-num { font-size: 20px; }
+      }
+    </style>
+  </head>
+  <body style="background: #f7fafc">
+    <div id="filter-overlay" class="nav-overlay"></div>
+
+    <div class="prof-modal-overlay" id="prof-signout-modal">
+      <div class="prof-modal-box">
+        <div class="prof-modal-header">
+          <h3><i class="ph-fill ph-sign-out" style="color:#fa3434"></i> Sign Out</h3>
+          <button class="prof-modal-close" onclick="closeProfModal('prof-signout-modal')">&#x2715;</button>
+        </div>
+        <div class="prof-modal-body" style="text-align: center;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 30px; background: #fff0f0;">
+            <i class="ph-fill ph-sign-out" style="color:#fa3434"></i>
+          </div>
+          <p style="font-size: 18px; font-weight: 700; color: #1c1c1c; margin: 0 0 8px;">Sign out of your account?</p>
+          <p style="font-size: 13px; color: #8b96a5; line-height: 1.6; margin: 0;">You'll need to sign in again to access your orders, messages, and saved items.</p>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center; padding: 4px 24px 22px;">
+          <button style="background: #fff; color: #1c1c1c; border: 1px solid #dee2e6; border-radius: 6px; padding: 10px 22px; font-size: 13px; font-weight: 500; cursor: pointer;" onclick="closeProfModal('prof-signout-modal')">Cancel</button>
+          <button style="background: #fa3434; color: #fff; border: none; border-radius: 6px; padding: 10px 22px; font-size: 13px; font-weight: 500; cursor: pointer;" onclick="confirmSignOut()"><i class="ph ph-sign-out"></i> Sign out</button>
+        </div>
+      </div>
+    </div>
+
+    <div class="prof-modal-overlay" id="prof-delete-modal">
+      <div class="prof-modal-box">
+        <div class="prof-modal-header">
+          <h3><i class="ph-fill ph-warning" style="color:#fa3434"></i> Delete Account</h3>
+          <button class="prof-modal-close" onclick="closeProfModal('prof-delete-modal')">&#x2715;</button>
+        </div>
+        <div class="prof-modal-body" style="text-align: center;">
+          <div style="width: 64px; height: 64px; border-radius: 50%; display: flex; align-items: center; justify-content: center; margin: 0 auto 16px; font-size: 30px; background: #fff0f0;">
+            <i class="ph-fill ph-trash" style="color:#fa3434"></i>
+          </div>
+          <p style="font-size: 18px; font-weight: 700; color: #1c1c1c; margin: 0 0 8px;">Permanently delete your account?</p>
+          <p style="font-size: 13px; color: #8b96a5; line-height: 1.6; margin: 0;">All your data — orders, messages, and saved items — will be permanently removed. This action cannot be undone.</p>
+        </div>
+        <div style="display: flex; gap: 10px; justify-content: center; padding: 4px 24px 22px;">
+          <button style="background: #fff; color: #1c1c1c; border: 1px solid #dee2e6; border-radius: 6px; padding: 10px 22px; font-size: 13px; font-weight: 500; cursor: pointer;" onclick="closeProfModal('prof-delete-modal')">Cancel</button>
+          <button style="background: #fa3434; color: #fff; border: none; border-radius: 6px; padding: 10px 22px; font-size: 13px; font-weight: 500; cursor: pointer;" onclick="confirmDeleteAccount()"><i class="ph ph-trash"></i> Delete account</button>
+        </div>
+      </div>
+    </div>
+
+    <aside class="side-nav-mobile" id="side-nav">
+      <div class="nav-user-header">
+        <button id="close-btn" class="close-btn" aria-label="Close Menu">✕</button>
+        <div class="avatar-circle"><img src="Assets/avatar=pic1.jpg" alt="User Profile" /></div>
+        <div class="auth-text">Sign in | Register</div>
+      </div>
+      <ul class="nav-links">
+        <li><a href="index.html"><span class="nav-icon">🏠</span> Home</a></li>
+        <li><a href="products.html?category=All category"><span class="nav-icon">📋</span> Categories</a></li>
+        <li><a href="order.html"><span class="nav-icon">📦</span> My orders</a></li>
+      </ul>
+    </aside>
+
+    <header class="page-header container desktop-only" style="margin-top: 0px">
+      <div class="header-top-row">
+        <div class="logo-area">
+          <a href="index.html" class="logo-wrapper">
+            <img src="Assets/Brand/logo-symbol.svg" alt="Brand Logo" class="brand-logo-img" />
+            <div class="logo-text">Brand</div>
+          </a>
+        </div>
+        <div class="header-actions desktop-only-flex">
+          <div class="action-item" id="header-profile-action" style="cursor:pointer;color:#0d7dfa"><span class="icon"><i class="ph-fill ph-user" style="font-size: 24px"></i></span><span class="label">Profile</span></div>
+          <a href="messages.html" class="action-item" style="text-decoration: none; color: inherit"><span class="icon"><i class="ph-fill ph-chat-teardrop-dots" style="font-size: 24px"></i></span><span class="label">Message</span></a>
+          <a href="order.html" class="action-item" style="text-decoration: none; color: inherit"><span class="icon"><i class="ph-fill ph-heart" style="font-size: 24px"></i></span><span class="label">Orders</span></a>
+          <a href="cart.html" class="action-item" style="text-decoration: none; color: inherit"><span class="icon"><i class="ph-fill ph-shopping-cart" style="font-size: 24px"></i></span><span class="label">My cart</span></a>
+        </div>
+      </div>
+    </header>
+
+    <div class="mobile-details-top-bar mobile-only-flex" style="border-bottom: 1px solid #e3e8ee; padding: 15px 20px; background: #fff;">
+      <a href="index.html" class="back-arrow" style="color: #1c1c1c; display: flex; align-items: center; gap: 15px; font-size: 18px; font-weight: 600; text-decoration: none;">
+        <i class="ph ph-arrow-left" style="font-size: 24px"></i> My Profile
+      </a>
+    </div>
+
+    <main id="prof-main"></main>
+
+     <footer class="site-footer" style="margin-top: 40px">
+      <div class="container footer-columns">
+        <div class="col-main logo">
+          <div class="logo-wrapper" style="margin-bottom: 15px">
+            <img
+              src="Assets/Brand/logo-symbol.svg"
+              alt="Brand Logo"
+              class="brand-logo-img" />
+            <div class="logo-text">Brand</div>
+          </div>
+          <p>
+            Best information about the company<br />goes here but now lorem
+            ipsum is
+          </p>
+          <div class="social-links">
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-facebook-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-twitter-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-linkedin-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-instagram-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+            <a href="#" class="social-circle"
+              ><i
+                class="ph-fill ph-youtube-logo"
+                style="color: white; font-size: 18px"></i
+            ></a>
+          </div>
+        </div>
+        <div class="col">
+          <strong>About</strong>
+          <ul>
+            <li>About Us</li>
+            <li>Find store</li>
+            <li>Categories</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>Partnership</strong>
+          <ul>
+            <li>About Us</li>
+            <li>Find store</li>
+            <li>Categories</li>
+            <li>Blogs</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>Information</strong>
+          <ul>
+            <li>Help Center</li>
+            <li>Money Refund</li>
+            <li>Shipping</li>
+            <li>Contact us</li>
+          </ul>
+        </div>
+        <div class="col">
+          <strong>For users</strong>
+          <ul>
+            <li>Login</li>
+            <li>Register</li>
+            <li>Settings</li>
+            <li>My Orders</li>
+          </ul>
+        </div>
+        <div class="col-apps">
+          <strong>Get app</strong>
+          <img
+            src="Assets/playstore.png"
+            alt="Download on the App Store"
+            class="app-badge" />
+          <img
+            src="Assets/googleplay.png"
+            alt="Get it on Google Play"
+            class="app-badge" />
+        </div>
+      </div>
+      <div class="footer-bottom">
+        <div class="container footer-bottom-inner">
+          <span>© 2026 Ecommerce.</span>
+          <div class="dropdown-wrapper footer-dropdown">
+            <span
+              class="language"
+              style="display: flex; align-items: center; color: #1c1c1c">
+              <img
+                src="https://flagcdn.com/w20/us.png"
+                alt="US"
+                class="dropdown-flag"
+                style="margin-right: 6px" />
+              English ⌃
+            </span>
+            <ul class="dropdown-menu dropup-menu">
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/us.png"
+                    alt="US"
+                    class="dropdown-flag" />
+                  English</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/es.png"
+                    alt="ES"
+                    class="dropdown-flag" />
+                  Spanish</a
+                >
+              </li>
+              <li>
+                <a href="#"
+                  ><img
+                    src="https://flagcdn.com/w20/de.png"
+                    alt="DE"
+                    class="dropdown-flag" />
+                  German</a
+                >
+              </li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </footer>
+
+    <script src="index.js"></script>
+    <script src="profile.js"></script>
+  </body>
+</html>
