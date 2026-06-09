@@ -3574,3 +3574,68 @@ a {
 .toast-close:hover {
   color: #505050;
 }
+
+/* ── Auth Confirm Modals ── */
+.prof-modal-overlay {
+  display: none;
+  position: fixed;
+  inset: 0;
+  background: rgba(0,0,0,0.45);
+  z-index: 9999;
+  align-items: center;
+  justify-content: center;
+  padding: 20px;
+}
+.prof-modal-overlay.open { display: flex; }
+.prof-modal-box {
+  background: #fff;
+  border-radius: 12px;
+  width: 100%;
+  max-width: 420px;
+  box-shadow: 0 20px 60px rgba(0,0,0,0.18);
+  animation: profModalIn .2s ease;
+  font-family: Inter, sans-serif;
+  overflow: hidden;
+}
+@keyframes profModalIn {
+  from { transform: scale(.95); opacity: 0; }
+  to   { transform: scale(1);  opacity: 1; }
+}
+.prof-modal-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 18px 22px 14px;
+  border-bottom: 1px solid #e9ecef;
+}
+.prof-modal-header h3 {
+  margin: 0;
+  font-size: 16px;
+  font-weight: 600;
+  color: #1c1c1c;
+  display: flex;
+  align-items: center;
+  gap: 8px;
+}
+.prof-modal-close {
+  background: none; border: none; cursor: pointer;
+  font-size: 20px; color: #8b96a5; line-height: 1;
+  padding: 2px 6px; border-radius: 4px;
+  transition: background .15s;
+}
+.prof-modal-close:hover { background: #f0f0f0; color: #1c1c1c; }
+.prof-modal-body {
+  padding: 28px 24px 28px;
+}
+.auth-input-styled {
+  width: 100%; padding: 12px 13px; border: 1.5px solid #e3e8ee; 
+  border-radius: 8px; font-size: 14px; color: #1c1c1c; 
+  outline: none; transition: border-color .15s; margin-top: 6px;
+}
+.auth-input-styled:focus { border-color: #0d7dfa; }
+.auth-btn-styled {
+  width: 100%; background: #0d7dfa; color: #fff; border: none; 
+  border-radius: 8px; padding: 12px; font-size: 15px; 
+  font-weight: 600; cursor: pointer; margin-top: 15px; transition: 0.2s;
+}
+.auth-btn-styled:hover { background: #0b6cd8; }
