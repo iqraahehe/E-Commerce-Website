@@ -202,40 +202,39 @@ document.addEventListener('DOMContentLoaded', () => {
         });
     });
 
+    // ── User-scoped key helper ──
+    function getUserKey(base, user) {
+        user = user || JSON.parse(localStorage.getItem('currentUser'));
+        return user ? base + '_' + user.id : base;
+    }
+
     // 9. ADD TO CART LOGIC
-// 9. ADD TO CART LOGIC (FIXED FOR BOTH MOBILE & DESKTOP)
     const primaryButtons = document.querySelectorAll('.button-primary');
-    
     primaryButtons.forEach(btn => {
-        // Only target the buttons that say "Send inquiry" or "Add to cart"
-        if(btn.innerText.includes('Send inquiry') || btn.innerText.includes('Add to cart')) {
-            
-            btn.innerText = "Add to cart"; // Renames the button
-            
+        if (btn.innerText.includes('Send inquiry') || btn.innerText.includes('Add to cart')) {
+            btn.innerText = "Add to cart";
             btn.addEventListener('click', (e) => {
-                e.preventDefault(); // Stops the button from reloading the page
-                
-                let cart = JSON.parse(localStorage.getItem('cart')) || [];
-                let existingItem = cart.find(item => item.id === productId);
-                
-                if (existingItem) {
-                    existingItem.qty += 1;
-                } else {
-                    cart.push({ id: productId, qty: 1 });
+                e.preventDefault();
+                const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+                if (!currentUser) {
+                    if (typeof openAuthModal === 'function') openAuthModal('login');
+                    return;
                 }
-                
-                localStorage.setItem('cart', JSON.stringify(cart));
-                
-                // Visual feedback for whichever button was clicked
+                let cart = JSON.parse(localStorage.getItem(getUserKey('cart', currentUser))) || [];
+                let existingItem = cart.find(item => item.id === productId);
+                if (existingItem) { existingItem.qty += 1; }
+                else { cart.push({ id: productId, qty: 1 }); }
+                localStorage.setItem(getUserKey('cart', currentUser), JSON.stringify(cart));
+
                 btn.innerText = "✓ Added!";
                 btn.style.backgroundColor = "#00b517";
                 btn.style.borderColor = "#00b517";
                 btn.style.color = "#fff";
-                
                 setTimeout(() => {
                     btn.innerText = "Add to cart";
                     btn.style.backgroundColor = "";
                     btn.style.borderColor = "";
+                    btn.style.color = "";
                 }, 2000);
             });
         }
@@ -246,18 +245,20 @@ document.addEventListener('DOMContentLoaded', () => {
     saveBtns.forEach(btn => {
         btn.addEventListener('click', function(e) {
             e.preventDefault();
-            let saved = JSON.parse(localStorage.getItem('savedItems')) || [];
-            
+            const currentUser = JSON.parse(localStorage.getItem('currentUser'));
+            if (!currentUser) {
+                if (typeof openAuthModal === 'function') openAuthModal('login');
+                return;
+            }
+            let saved = JSON.parse(localStorage.getItem(getUserKey('savedItems', currentUser))) || [];
             if (!saved.includes(productId)) {
                 saved.push(productId);
-                localStorage.setItem('savedItems', JSON.stringify(saved));
+                localStorage.setItem(getUserKey('savedItems', currentUser), JSON.stringify(saved));
             }
-            
-            // Visual Feedback
-            if(this.classList.contains('save-btn')) {
-                this.innerHTML = `<i class="ph-fill ph-heart" style="font-size: 18px; margin-right: 6px; color: #fa3434;"></i> Saved`;
+            if (this.classList.contains('save-btn')) {
+                this.innerHTML = `<i class="ph-fill ph-heart" style="font-size:18px;margin-right:6px;color:#fa3434;"></i> Saved`;
             } else {
-                this.innerHTML = `<i class="ph-fill ph-heart" style="font-size: 20px; color: #fa3434;"></i>`;
+                this.innerHTML = `<i class="ph-fill ph-heart" style="font-size:20px;color:#fa3434;"></i>`;
             }
         });
     });
